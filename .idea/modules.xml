@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/.idea/and-app.iml" filepath="$PROJECT_DIR$/.idea/and-app.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/.idea/djangoMobileAppBack.iml" filepath="$PROJECT_DIR$/.idea/djangoMobileAppBack.iml" />
+>>>>>>> eb84420e1d23b342f1b8455f84324e22a51bef12
     </modules>
   </component>
 </project>
