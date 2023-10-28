@@ -27,7 +27,7 @@ export const LoginScreen = ({props}) => {
 
     const login = (email, password) => {
         axios
-            .post('http://192.168.88.254:8000/api/users/login/', {email, password})
+            .post('http://192.168.88.209:8000/api/users/login/', {email, password})
             .then((response) => {
                 setUserObj(response.data['user_info'])
                 setToken(response.data['token'])

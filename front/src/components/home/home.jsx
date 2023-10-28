@@ -16,7 +16,7 @@ export const HomeScreen = (props) => {
     const headers = {"Authorization": `Token ${token}`}
 
     useEffect(() => {
-        axios.get(`http://192.168.88.254:8000/api/places/points/`, {headers}).then((response) => {
+        axios.get(`http://192.168.88.209:8000/api/places/points/`, {headers}).then((response) => {
             setResults(response.data)
         })
             .catch((error) => {

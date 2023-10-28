@@ -14,7 +14,7 @@ export const DetailsScreen = () => {
 
     console.log(otherProp)
     const onClickR = () => {
-        axios.get(`http://192.168.88.254:8000/api/places/items/${otherProp['id']}`, {headers}).then(
+        axios.get(`http://192.168.88.209:8000/api/places/items/${otherProp['id']}`, {headers}).then(
             (response) => {
                 console.log(response.data)
             }

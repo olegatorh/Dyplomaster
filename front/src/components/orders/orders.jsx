@@ -14,7 +14,7 @@ export const OrdersScreen = (props) => {
     const headers = {"Authorization": `Token ${token}`}
     useEffect(() => {
 
-        axios.get(`http://192.168.88.254:8000/api/places/bookings/${userObj['id']}`, {headers}).then((response) => {
+        axios.get(`http://192.168.88.209:8000/api/places/bookings/${userObj['id']}`, {headers}).then((response) => {
             setBookingData(response.data)
         })
             .catch((error) => {

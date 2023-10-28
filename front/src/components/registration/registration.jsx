@@ -23,7 +23,7 @@ export const RegistrationScreen = () => {
   const navigation = useNavigation()
 
   const registration = (email, password, username, phone_number) => {
-    axios.post('http://192.168.88.254:8000/api/users/register/', { email, password, username, phone_number }).then((response) => {
+    axios.post('http://192.168.88.209:8000/api/users/register/', { email, password, username, phone_number }).then((response) => {
                                             alert('registration success!!');
                                             navigation.navigate('Login')
                                   })

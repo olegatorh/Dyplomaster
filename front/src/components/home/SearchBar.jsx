@@ -11,7 +11,7 @@ export const SearchBar = ({setResults, token}) => {
     const headers = {"Authorization": `Token ${token}`}
     const fetchData = (value) => {
         // Send a GET request to your Django server with the search query
-        axios.get(`http://192.168.88.254:8000/api/places/points/${value}`, {headers}).then((response) => {
+        axios.get(`http://192.168.88.209:8000/api/places/points/${value}`, {headers}).then((response) => {
             setResults(response.data)
         })
             .catch((error) => {
