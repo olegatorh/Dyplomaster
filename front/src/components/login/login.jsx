@@ -10,38 +10,31 @@ import {
     TouchableWithoutFeedback,
     View,
 } from "react-native";
-import {Button, SocialIcon} from "react-native-elements";
-import axios from 'axios';
-import {Application} from 'expo';
+import {Button} from "react-native-elements";
 import {Context} from '../globalContext/globalContext';
+import {login} from "../../api_req/auth";
 
 
 export const LoginScreen = ({props}) => {
 
     const navigation = useNavigation()
     const globalContext = useContext(Context);
-    const {setIsLoggedIn, userObj, setUserObj, setToken} = globalContext;
+    const {setIsLoggedIn, setUserObj, setToken} = globalContext;
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const login = (email, password) => {
-        axios
-            .post('http://192.168.88.209:8000/api/users/login/', {email, password})
-            .then((response) => {
-                setUserObj(response.data['user_info'])
-                setToken(response.data['token'])
-                setIsLoggedIn(true)
-            })
+
+    const onLoginPress = () => {
+        login(email, password).then((response) => {
+            setUserObj(response.data['user_info'])
+            setToken(response.data['token'])
+            setIsLoggedIn(true)
+        })
             .catch((error) => {
                 alert('wrong credentials');
                 console.log(error.response.data);
             });
-    };
-
-
-    const onLoginPress = () => {
-        login(email, password);
     }
 
     return (

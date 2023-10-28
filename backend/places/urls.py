@@ -1,7 +1,7 @@
 from django.urls import path
 from rest_framework.routers import DefaultRouter
 
-from .views import bookings_api, places_api, place_items_api
+from .views import bookings_api, places_api, place_items_api, create_booking
 
 router = DefaultRouter()
 # router.register(r'places', PlacesViewSet, basename='place')
@@ -11,6 +11,7 @@ router = DefaultRouter()
 urlpatterns = [
                   path('bookings/<int:user_id>/', bookings_api, name='bookings_api_with_user_id'),
                   path('bookings/', bookings_api, name='bookings_api_with_user_id'),
+                  path('bookings/create_booking/', create_booking, name='create_booking_api'),
                   path('points/<str:place_name>/', places_api, name='filtered_place_api'),
                   path('points/', places_api, name='bookings_api_all'),  # No user_id in URL
                   path('items/<str:place_name>/', place_items_api, name='place_items_api'),  # No user_id in URL

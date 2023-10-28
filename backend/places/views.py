@@ -5,6 +5,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from .models import Place, Booking, PlaceItems
 from .serializers import PlaceSerializer, BookingSerializer, PlaceItemsSerializer
+from rest_framework import status
 
 
 # # Create your views here.
@@ -49,6 +50,18 @@ def bookings_api(request, user_id=None):
         serializer = BookingSerializer(not_filtered_bookings, many=True)
     return Response(serializer.data)
 
+
+@api_view(['POST'])
+@authentication_classes([TokenAuthentication])
+@permission_classes([IsAuthenticated])
+def create_booking(request):
+    if request.method == 'POST':
+        print(request.data)
+        serializer = BookingSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['GET'])
 @authentication_classes([TokenAuthentication])

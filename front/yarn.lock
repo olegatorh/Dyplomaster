@@ -1866,11 +1866,11 @@
     nullthrows "^1.1.1"
 
 "@react-navigation/bottom-tabs@^6.5.9":
-  version "6.5.9"
-  resolved "https://registry.yarnpkg.com/@react-navigation/bottom-tabs/-/bottom-tabs-6.5.9.tgz#d132e787b58b23dedfeb19b586f9467613a0c6bf"
-  integrity sha512-366D4pwq41qKqzsrEk3OPW9atTQJrfrLHPJhX3NLOinRIuDrxal1jJwN3vzNZoEg7gIEKaPYckuqUKg0zRFdog==
+  version "6.5.11"
+  resolved "https://registry.npmjs.org/@react-navigation/bottom-tabs/-/bottom-tabs-6.5.11.tgz"
+  integrity sha512-CBN/NOdxnMvmjw+AJQI1kltOYaClTZmGec5pQ3ZNTPX86ytbIOylDIITKMfTgHZcIEFQDymx1SHeS++PIL3Szw==
   dependencies:
-    "@react-navigation/elements" "^1.3.19"
+    "@react-navigation/elements" "^1.3.21"
     color "^4.2.3"
     warn-once "^0.1.0"
 
@@ -1886,10 +1886,10 @@
     react-is "^16.13.0"
     use-latest-callback "^0.1.5"
 
-"@react-navigation/elements@^1.3.19":
-  version "1.3.19"
-  resolved "https://registry.npmjs.org/@react-navigation/elements/-/elements-1.3.19.tgz"
-  integrity sha512-7hLvSYKPuDS070pza5gd43WDX7QgfuEmuTWNbCJhKdWlLudYmq3qzxGCBwCfO2dEI6+p8tla5wruaWiGKAbTYw==
+"@react-navigation/elements@^1.3.19", "@react-navigation/elements@^1.3.21":
+  version "1.3.21"
+  resolved "https://registry.npmjs.org/@react-navigation/elements/-/elements-1.3.21.tgz"
+  integrity sha512-eyS2C6McNR8ihUoYfc166O1D8VYVh9KIl0UQPI8/ZJVsStlfSTgeEEh+WXge6+7SFPnZ4ewzEJdSAHH+jzcEfg==
 
 "@react-navigation/native-stack@^6.9.14":
   version "6.9.14"
@@ -2661,7 +2661,7 @@ cliui@^6.0.0:
 
 cliui@^7.0.2:
   version "7.0.4"
-  resolved "https://registry.yarnpkg.com/cliui/-/cliui-7.0.4.tgz#a0265ee655476fc807aea9df3df8df7783808b4f"
+  resolved "https://registry.npmjs.org/cliui/-/cliui-7.0.4.tgz"
   integrity sha512-OcRE68cOsVMXp1Yvonl/fzkQOyjLSu/8bhPDfQt0e0/Eb283TKP20Fs2MqoPsr9SwA595rRCA+QMzYc9nBP+JQ==
   dependencies:
     string-width "^4.2.0"
@@ -2738,7 +2738,7 @@ color@^3.1.2:
 
 color@^4.2.3:
   version "4.2.3"
-  resolved "https://registry.yarnpkg.com/color/-/color-4.2.3.tgz#d781ecb5e57224ee43ea9627560107c0e0c6463a"
+  resolved "https://registry.npmjs.org/color/-/color-4.2.3.tgz"
   integrity sha512-1rXeuUUiGGrykh+CeBdu5Ie7OJwinCgQY0bc7GCRxy5xVHy+moaqkpL/jqQq0MtQOeYcrqEz4abc5f0KtU7W4A==
   dependencies:
     color-convert "^2.0.1"
@@ -3125,15 +3125,15 @@ escape-html@~1.0.3:
   resolved "https://registry.npmjs.org/escape-html/-/escape-html-1.0.3.tgz"
   integrity sha512-NiSupZ4OeuGwr68lGIeym/ksIZMJodUGOSCZ/FSnTxcrekbvqrgdUxlJOMpijaKZVjAJrWrGs/6Jy8OMuyj9ow==
 
+escape-string-regexp@2.0.0, escape-string-regexp@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.npmjs.org/escape-string-regexp/-/escape-string-regexp-2.0.0.tgz"
+  integrity sha512-UpzcLCXolUWcNu5HtVMHYdXJjArjsF9C0aNnquZYY4uW/Vu0miy5YoWvbV345HauVvcAUnpRuhMMcqTcGOY2+w==
+
 escape-string-regexp@^1.0.5:
   version "1.0.5"
   resolved "https://registry.npmjs.org/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz"
   integrity sha512-vbRorB5FUQWvla16U8R/qgaFIya2qGzwDrNmCZuYKrbdSUMG6I1ZCGQRefkRVhuOkIGVne7BQ35DSfo1qvJqFg==
-
-escape-string-regexp@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.npmjs.org/escape-string-regexp/-/escape-string-regexp-2.0.0.tgz"
-  integrity sha512-UpzcLCXolUWcNu5HtVMHYdXJjArjsF9C0aNnquZYY4uW/Vu0miy5YoWvbV345HauVvcAUnpRuhMMcqTcGOY2+w==
 
 escape-string-regexp@^4.0.0:
   version "4.0.0"
@@ -3260,7 +3260,7 @@ expo-modules-core@1.5.11:
 
 expo-secure-store@~12.3.1:
   version "12.3.1"
-  resolved "https://registry.yarnpkg.com/expo-secure-store/-/expo-secure-store-12.3.1.tgz#7e5ba94f6e7374f132108c9feb5cc811568f3db6"
+  resolved "https://registry.npmjs.org/expo-secure-store/-/expo-secure-store-12.3.1.tgz"
   integrity sha512-XLIgWDiIuiR0c+AA4NCWWibAMHCZUyRcy+lQBU49U6rvG+xmd3YrBJfQjfqAPyLroEqnLPGTWUX57GyRsfDOQw==
 
 expo-status-bar@~1.6.0:
@@ -3821,7 +3821,7 @@ internal-ip@4.3.0:
     default-gateway "^4.2.0"
     ipaddr.js "^1.9.0"
 
-invariant@*, invariant@^2.2.4:
+invariant@*, invariant@2.2.4, invariant@^2.2.4:
   version "2.2.4"
   resolved "https://registry.npmjs.org/invariant/-/invariant-2.2.4.tgz"
   integrity sha512-phJfQVBuaJM5raOpJjSfkiD6BpbCE4Ns//LaXl6wGYtUBY83nWS6Rf9tXm2e8VaK60JEjYldbPif/A2B1C2gNA==
@@ -5327,7 +5327,7 @@ prompts@^2.3.2, prompts@^2.4.0:
     kleur "^3.0.3"
     sisteransi "^1.0.5"
 
-prop-types@*, prop-types@^15.7.2:
+prop-types@*, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.8.1"
   resolved "https://registry.npmjs.org/prop-types/-/prop-types-15.8.1.tgz"
   integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
@@ -5441,6 +5441,13 @@ react-is@^17.0.1:
   resolved "https://registry.npmjs.org/react-is/-/react-is-17.0.2.tgz"
   integrity sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==
 
+react-native-animatable@1.3.3:
+  version "1.3.3"
+  resolved "https://registry.yarnpkg.com/react-native-animatable/-/react-native-animatable-1.3.3.tgz#a13a4af8258e3bb14d0a9d839917e9bb9274ec8a"
+  integrity sha512-2ckIxZQAsvWn25Ho+DK3d1mXIgj7tITkrS4pYDvx96WyOttSvzzFeQnM2od0+FUMzILbdHDsDEqZvnz1DYNQ1w==
+  dependencies:
+    prop-types "^15.7.2"
+
 react-native-elements@^3.4.3:
   version "3.4.3"
   resolved "https://registry.npmjs.org/react-native-elements/-/react-native-elements-3.4.3.tgz"
@@ -5454,6 +5461,14 @@ react-native-elements@^3.4.3:
     opencollective-postinstall "^2.0.3"
     react-native-ratings "8.0.4"
     react-native-size-matters "^0.3.1"
+
+react-native-modal@^13.0.1:
+  version "13.0.1"
+  resolved "https://registry.yarnpkg.com/react-native-modal/-/react-native-modal-13.0.1.tgz#691f1e646abb96fa82c1788bf18a16d585da37cd"
+  integrity sha512-UB+mjmUtf+miaG/sDhOikRfBOv0gJdBU2ZE1HtFWp6UixW9jCk/bhGdHUgmZljbPpp0RaO/6YiMmQSSK3kkMaw==
+  dependencies:
+    prop-types "^15.6.2"
+    react-native-animatable "1.3.3"
 
 react-native-ratings@8.0.4:
   version "8.0.4"
@@ -5482,16 +5497,24 @@ react-native-size-matters@^0.3.1:
 
 react-native-vector-icons@^10.0.0:
   version "10.0.0"
-  resolved "https://registry.yarnpkg.com/react-native-vector-icons/-/react-native-vector-icons-10.0.0.tgz#0f031f7717f76f0a397f725de9b5a47ec87862e9"
+  resolved "https://registry.npmjs.org/react-native-vector-icons/-/react-native-vector-icons-10.0.0.tgz"
   integrity sha512-efMOVbZIebY8RszZPzPBoXi9pvD/NFYmjIDYxRoc9LYSzV8rMJtT8FfcO2hPu85Rn2x9xktha0+qn0B7EqMAcQ==
   dependencies:
     prop-types "^15.7.2"
     yargs "^16.1.1"
 
-react-native@0.72.5:
-  version "0.72.5"
-  resolved "https://registry.npmjs.org/react-native/-/react-native-0.72.5.tgz"
-  integrity sha512-oIewslu5DBwOmo7x5rdzZlZXCqDIna0R4dUwVpfmVteORYLr4yaZo5wQnMeR+H7x54GaMhmgeqp0ZpULtulJFg==
+react-native-webview@13.2.2:
+  version "13.2.2"
+  resolved "https://registry.yarnpkg.com/react-native-webview/-/react-native-webview-13.2.2.tgz#06b04db8e1f4ed57a9dc92f4094aa0e41271b89b"
+  integrity sha512-uT70y2GUqQzaj2RwRb/QuKRdXeDjXM6oN3DdPqYQlOOMFTCT8r62fybyjVVRoik8io+KLa5KnmuSoS5B2O1BmA==
+  dependencies:
+    escape-string-regexp "2.0.0"
+    invariant "2.2.4"
+
+react-native@0.72.6:
+  version "0.72.6"
+  resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.72.6.tgz#9f8d090694907e2f83af22e115cc0e4a3d5fa626"
+  integrity sha512-RafPY2gM7mcrFySS8TL8x+TIO3q7oAlHpzEmC7Im6pmXni6n1AuufGaVh0Narbr1daxstw7yW7T9BKW5dpVc2A==
   dependencies:
     "@jest/create-cache-key-function" "^29.2.1"
     "@react-native-community/cli" "11.3.7"
@@ -6717,7 +6740,7 @@ yargs-parser@^18.1.2:
 
 yargs-parser@^20.2.2:
   version "20.2.9"
-  resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-20.2.9.tgz#2eb7dc3b0289718fc295f362753845c41a0c94ee"
+  resolved "https://registry.npmjs.org/yargs-parser/-/yargs-parser-20.2.9.tgz"
   integrity sha512-y11nGElTIV+CT3Zv9t7VKl+Q3hTQoT9a1Qzezhhl6Rp21gJ/IVTW7Z3y9EWXhuUBC2Shnf+DX0antecpAwSP8w==
 
 yargs-parser@^21.1.1:
@@ -6744,7 +6767,7 @@ yargs@^15.1.0:
 
 yargs@^16.1.1:
   version "16.2.0"
-  resolved "https://registry.yarnpkg.com/yargs/-/yargs-16.2.0.tgz#1c82bf0f6b6a66eafce7ef30e376f49a12477f66"
+  resolved "https://registry.npmjs.org/yargs/-/yargs-16.2.0.tgz"
   integrity sha512-D1mvvtDG0L5ft/jGWkLpG1+m0eQxOfaBvTNELraWj22wSVUMWxZUvYgJYcKh6jGGIkJFhH4IZPQhR4TKpc8mBw==
   dependencies:
     cliui "^7.0.2"
@@ -6767,6 +6790,11 @@ yargs@^17.6.2:
     string-width "^4.2.3"
     y18n "^5.0.5"
     yargs-parser "^21.1.1"
+
+yarn@^1.22.19:
+  version "1.22.19"
+  resolved "https://registry.npmjs.org/yarn/-/yarn-1.22.19.tgz"
+  integrity sha512-/0V5q0WbslqnwP91tirOvldvYISzaqhClxzyUKXYxs07yUILIs5jx/k6CFe8bvKSkds5w+eiOqta39Wk3WxdcQ==
 
 yocto-queue@^0.1.0:
   version "0.1.0"

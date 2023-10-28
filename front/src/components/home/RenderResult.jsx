@@ -1,19 +1,41 @@
-import {Button, Image, Text, View} from "react-native";
+import {FlatList, Image, Text, TouchableOpacity, View} from "react-native";
 import styles from "./style";
 import {useNavigation} from "@react-navigation/native";
+import {place_details} from "../../api_req/places";
+import {base_api_url} from "../../api_req/base";
+import {useContext} from "react";
+import {Context} from "../globalContext/globalContext";
 
 export const RenderResult = ({results}) => {
     const navigation = useNavigation()
+    const globalContext = useContext(Context);
+    const {token} = globalContext;
+    const onClickR = (item) => {
+        place_details(item.id, token).then(
+            (response) => {
+                navigation.navigate('Details', {name: item.place_name, props: {items: response.data, place: item}})
+            }
+        )
+    }
     return (
-        <View>
-            {results.map((place) => (
-                <View key={place['id']} style={styles.container}>
-                    <Button title={place['place_name']}
-                            onPress={() => navigation.navigate('Details', {name: place['place_name'], props: place})}>
-                        {/*<Image source={require(`./../../../../../djangoMobileAppBack/backend/media/${place['item_picture']}`)} />*/}
-                    </Button>
-                </View>
-            ))}
-        </View>
-    )
+        <FlatList
+            data={results}
+            keyExtractor={(item) => item.id.toString()}
+            renderItem={({item}) => (
+                <TouchableOpacity onPress={() => onClickR(item)}>
+                    <View>
+                        <View style={styles.itemContainer}>
+                            <Image
+                                style={styles.image}
+                                source={{uri: `http://${base_api_url}${item.item_picture}`}} // Replace with your image URL
+                            />
+                        </View>
+                        <Text style={styles.text}>{item.place_name}</Text>
+                    </View>
+                </TouchableOpacity>
+            )}
+        />
+    );
 }
+
+

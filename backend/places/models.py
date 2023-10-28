@@ -5,8 +5,8 @@ from user.models import MyUser
 class Place(models.Model):
     place_name = models.CharField(max_length=100)
     active = models.BooleanField(default=True)
-    tables = models.IntegerField()
-    additional_info = models.CharField(max_length=100)
+    seats = models.IntegerField()
+    additional_info = models.TextField()
     item_picture = models.ImageField(upload_to='places/', blank=True, null=True)
 
     def __str__(self):
@@ -42,7 +42,7 @@ class PlaceItems(models.Model):
     item_group = models.ForeignKey(ItemGroups, on_delete=models.CASCADE)
     item_price = models.CharField(max_length=100)
     item_picture = models.ImageField(upload_to='uploads/', blank=True, null=True)
-    additional_info = models.CharField(max_length=100)
+    additional_info = models.TextField()
     place = models.ForeignKey(Place, on_delete=models.CASCADE, to_field='id')
 
     def __str__(self):

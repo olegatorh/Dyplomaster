@@ -1,22 +1,18 @@
-import React, {useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import styles from "./style";
-import {View, Text} from "react-native";
-import {useContext} from 'react'
-import {Context} from '../globalContext/globalContext';
+import {View} from "react-native";
 import {SearchBar} from "./SearchBar";
 import {RenderResult} from "./RenderResult";
-import axios from "axios";
+import {get_places} from "../../api_req/places";
+import {Context} from "../globalContext/globalContext";
 
 
 export const HomeScreen = (props) => {
     const [results, setResults] = useState([])
     const globalContext = useContext(Context);
-    const {userObj} = globalContext;
     const {token} = globalContext;
-    const headers = {"Authorization": `Token ${token}`}
-
     useEffect(() => {
-        axios.get(`http://192.168.88.209:8000/api/places/points/`, {headers}).then((response) => {
+        get_places(token).then((response) => {
             setResults(response.data)
         })
             .catch((error) => {
@@ -26,7 +22,7 @@ export const HomeScreen = (props) => {
 
     return (
         <View style={styles.containerView}>
-            <SearchBar token={token} setResults={setResults}/>
+            <SearchBar setResults={setResults}/>
             <RenderResult results={results}/>
         </View>
     );
