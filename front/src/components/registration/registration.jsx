@@ -10,7 +10,7 @@ import {
     View,
 } from "react-native";
 import {Button} from "react-native-elements";
-import {registration} from "../../api_req/auth";
+import {registration} from "../../apiRequests/auth";
 
 
 export const RegistrationScreen = () => {

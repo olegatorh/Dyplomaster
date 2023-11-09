@@ -12,7 +12,7 @@ import {
 } from "react-native";
 import {Button} from "react-native-elements";
 import {Context} from '../globalContext/globalContext';
-import {login} from "../../api_req/auth";
+import {login} from "../../apiRequests/auth";
 
 
 export const LoginScreen = ({props}) => {
@@ -33,7 +33,6 @@ export const LoginScreen = ({props}) => {
         })
             .catch((error) => {
                 alert('wrong credentials');
-                console.log(error.response.data);
             });
     }
 

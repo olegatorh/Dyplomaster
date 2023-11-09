@@ -52,3 +52,9 @@ class RegisterSerializer(serializers.ModelSerializer):
                 phone_number=phone_number
             )
         return user
+
+
+class MyUserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MyUser
+        fields = ['id', 'email', 'username', 'phone_number']

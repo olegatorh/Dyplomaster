@@ -115,34 +115,30 @@ const styles = StyleSheet.create({
             fontSize: 16,
             fontWeight: 'bold',
         },
-        RenderContainer: {
-            alignItems: 'center', // Center items vertically
-            paddingHorizontal: 16, // Adjust padding as needed
-            marginBottom: 30, // Adjust margin as needed
-            display: 'flex' /* Використовуємо Flexbox для розташування внутрішніх контейнерів */
-
+        makeBcontainer: {
+            width: 300, // Set the width to your desired value
+            height: 200, // Set the height to your desired value
+            backgroundColor: 'white',
+            padding: 10,
+            borderRadius: 10,
         },
-        RenderImage: {
-            width: 300, // Adjust the image width as needed
-            height: 150, // Adjust the image height as needed
-            marginRight: 16, // Spacing between the image and details
-            borderRadius: 5
+        modal: {
+            justifyContent: 'center',
+            alignItems: 'center',
+            backgroundColor: 'white',
         },
-        RenderDetailsContainer: {
+        dialogInput: {
+            borderWidth: 1,
+            borderColor: '#ccc',
+            borderRadius: 5,
+            padding: 10,
+            marginBottom: 10,
+        },
+        buttons: {
             flexDirection: 'row', // Display items in a row
-            justifyContent: 'space-between', // Space between the left and right content
             alignItems: 'center', // Vertically align items
         },
-        RenderLeftContent: {
-            flex: 1, // Takes up equal horizontal space
-        },
-        RenderRightContent: {
-            marginRight: 10
-        },
-        RenderText: {
-            fontSize: 16
-            // Your text styles for item.place_name
-        },
+
     })
 ;
 

@@ -113,12 +113,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'UTC'
-
-USE_I18N = True
-
+TIME_ZONE = 'Europe/Kiev'
 USE_TZ = True
+
 
 
 # Static files (CSS, JavaScript, Images)
@@ -134,4 +131,6 @@ AUTH_USER_MODEL = 'user.MyUser'
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': ('knox.auth.TokenAuthentication', ),
+    'NON_FIELD_ERRORS_KEY': 'booking_time_start',
+
 }

@@ -1,7 +1,7 @@
 import React, {useContext, useState} from "react";
 import styles from "./style";
 import {View, TextInput} from "react-native";
-import {search_places} from "../../api_req/places";
+import {search_places} from "../../apiRequests/places";
 import {Context} from "../globalContext/globalContext";
 
 
@@ -9,19 +9,15 @@ export const SearchBar = ({setResults}) => {
     const [searchInput, setSearchInput] = useState("");
     const globalContext = useContext(Context);
     const {token} = globalContext;
-    const fetchData = (value) => {
-        // Send a GET request to your Django server with the search query
+
+    const handleChange = (value) => {
+        setSearchInput(value);
         search_places(value, token).then((response) => {
             setResults(response.data)
         })
             .catch((error) => {
                 console.log(error);
             });
-    };
-
-    const handleChange = (value) => {
-        setSearchInput(value);
-        fetchData(value);
     };
 
     return (
