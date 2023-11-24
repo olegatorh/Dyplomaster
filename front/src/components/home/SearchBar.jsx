@@ -1,14 +1,23 @@
-import React, {useContext, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import styles from "./style";
 import {View, TextInput} from "react-native";
 import {search_places} from "../../apiRequests/places";
-import {Context} from "../globalContext/globalContext";
+import {Context, getValueFor} from "../globalContext/globalContext";
 
 
 export const SearchBar = ({setResults}) => {
     const [searchInput, setSearchInput] = useState("");
     const globalContext = useContext(Context);
-    const {token} = globalContext;
+    const [token, setToken] = useState(null);
+
+    useEffect(() => {
+        const fetchToken = async () => {
+            const storedToken = await getValueFor('token');
+            setToken(storedToken);
+        };
+
+        fetchToken();
+    }, []);
 
     const handleChange = (value) => {
         setSearchInput(value);

@@ -1,17 +1,37 @@
-// OrdersScreen.js
-
-import React, {useContext, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {Text, View, TouchableOpacity, FlatList, SafeAreaView, Image, Alert} from 'react-native'; // Use FlatList for rendering the list
-import {Context} from "../globalContext/globalContext";
+import {Context, getValueFor} from "../globalContext/globalContext";
 import {get_bookings, delete_booking} from "../../apiRequests/profile";
 import {styles} from "./style";
 import {base_api_url} from "../../apiRequests/base";
 import {useFocusEffect} from "@react-navigation/native";
 
+
 export const OrdersScreen = () => {
     const globalContext = useContext(Context);
     const [bookingData, setBookingData] = useState([]);
-    const {token, userObj} = globalContext;
+    const { userObj } = globalContext;
+    const [token, setToken] = useState(null);
+
+    useFocusEffect(
+        React.useCallback(() => {
+            const fetchData = async () => {
+                try {
+                    const storedToken = await getValueFor('token');
+                    console.log('stored token on OrdersScreen', storedToken);
+                    setToken(storedToken);
+
+                    const response = await get_bookings(userObj["id"], storedToken);
+                    setBookingData(response.data);
+                } catch (error) {
+                    console.error('Error fetching token or bookings:', error);
+                }
+            };
+
+            fetchData();
+        }, [userObj])
+    );
+
     const createTwoButtonAlert = (item) =>
         Alert.alert(`${item.place_name}`, `do you want to disable booking at ${new Date(item.booking_time_start).toLocaleTimeString([], {
             year: 'numeric',
@@ -28,18 +48,9 @@ export const OrdersScreen = () => {
                 onPress: () => console.log('Cancel booking disabling'),
                 style: 'cancel',
             },
-            {text: 'Yes', onPress: () => handleDelete(item.id)},
+            { text: 'Yes', onPress: () => handleDelete(item.id) },
         ]);
-    useFocusEffect(
-        React.useCallback(() => {
-            get_bookings(userObj["id"], token)
-                .then((response) => {
-                    setBookingData(response.data);
-                }).catch((error) => {
-                console.log('error')
-            })
-        }, [])
-    );
+
     const handleDelete = (bookingId) => {
         delete_booking(bookingId, token)
             .then(() => {
@@ -50,7 +61,6 @@ export const OrdersScreen = () => {
                     .catch((error) => {
                         console.log('error');
                     });
-
             })
             .catch((error) => {
                 console.log('error');
@@ -60,7 +70,7 @@ export const OrdersScreen = () => {
 
     return (
         <SafeAreaView style={styles.container}>
-            <Text style={{alignSelf: 'center'}}>Your Orders</Text>
+            <Text style={{ alignSelf: 'center' }}>Your Orders</Text>
             <FlatList
                 showsHorizontalScrollIndicator={false}
                 showsVerticalScrollIndicator={false}
@@ -78,9 +88,8 @@ export const OrdersScreen = () => {
                         return timeDifferenceA - timeDifferenceB;
                     })
                 }
-
                 keyExtractor={(item) => item.id.toString()}
-                renderItem={({item}) => (
+           renderItem={({item}) => (
                     item.active ? (
                             <View style={styles.orderContainer}>
                                 <Image source={{uri: `http://${base_api_url}/media/${item.place_picture}`}}

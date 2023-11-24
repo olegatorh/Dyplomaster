@@ -4,10 +4,38 @@ from rest_framework.response import Response
 from knox.auth import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 from .serializers import RegisterSerializer, MyUserSerializer
-from .utils.AuthTokenSerializer import AuthTokenSerializer
 from .models import MyUser
 from rest_framework import status
+from knox.settings import knox_settings
+from .utils.AuthTokenSerializer import AuthTokenSerializer
+from django.utils import timezone
 
+
+def refresh_auth_token(user):
+    """
+    Refreshes the authentication token for the given user.
+    Returns a new token key.
+    """
+    AuthToken.objects.filter(user=user).delete()  # Remove existing tokens for the user
+    token_obj, token = AuthToken.objects.create(user)
+
+    # Optionally, set token expiry based on the configured expiration settings
+    if knox_settings.TOKEN_TTL:
+        token_obj.expires_at = timezone.now() + knox_settings.TOKEN_TTL
+        token_obj.save()
+    return token
+
+
+@api_view(['POST'])
+@authentication_classes([TokenAuthentication])
+@permission_classes([IsAuthenticated])
+def token_refresh_view(request):
+    user = request.user
+
+    # Refresh the authentication token
+    new_token = refresh_auth_token(user)
+
+    return Response({'token': new_token})
 
 @api_view(['POST'])
 def login_api(request):
@@ -49,10 +77,11 @@ def register_api(request):
     )
 
 
+@authentication_classes([TokenAuthentication])
+@permission_classes([IsAuthenticated])
 @api_view(['GET'])
 def user_api(request):
     user = request.user
-
     if user.is_authenticated:
         return Response(
             {

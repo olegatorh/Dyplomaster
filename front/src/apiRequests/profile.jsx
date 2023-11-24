@@ -2,7 +2,13 @@ import axios from "axios";
 import {base_api_url} from "./base";
 
 
+const get_user_info = (token) => {
+    const headers = {"Authorization": `Token ${token}`}
+    return axios.get(`http://${base_api_url}/api/users/user/`, {headers})
+}
+
 const get_bookings = (user_id, token) => {
+    console.log('get bookings', user_id, token)
     const headers = {"Authorization": `Token ${token}`}
     return axios.get(`http://${base_api_url}/api/places/bookings/${user_id}`, {headers})
 }
@@ -15,9 +21,8 @@ const update_user_info = (parameters) => {
 const get_bookings_all = (token) => {
     const headers = {"Authorization": `Token ${token}`}
     return axios.get(`http://${base_api_url}/api/places/bookings/`, {headers}).catch((error) => {
-        console.log('error', error.response.data);
+        console.log('error bookings all', error.response.data);
     });
-
 }
 
 
@@ -44,4 +49,4 @@ const create_booking = (parameters) => {
 
 }
 
-export {get_bookings, delete_booking, create_booking, get_bookings_all, update_user_info}
+export {get_bookings, delete_booking, create_booking, get_bookings_all, update_user_info, get_user_info}

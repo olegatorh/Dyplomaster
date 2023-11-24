@@ -2,7 +2,7 @@ import React, {useContext, useState} from 'react';
 import styles from "./style";
 import {useNavigation} from '@react-navigation/native';
 import {
-    Alert,
+    DevSettings,
     Keyboard,
     KeyboardAvoidingView,
     Text,
@@ -11,30 +11,33 @@ import {
     View,
 } from "react-native";
 import {Button} from "react-native-elements";
-import {Context} from '../globalContext/globalContext';
+import {Context, saveInfo} from '../globalContext/globalContext';
 import {login} from "../../apiRequests/auth";
 
 
-export const LoginScreen = ({props}) => {
+export const LoginScreen = () => {
 
     const navigation = useNavigation()
     const globalContext = useContext(Context);
-    const {setIsLoggedIn, setUserObj, setToken} = globalContext;
+    const {setUserObj} = globalContext;
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
 
     const onLoginPress = () => {
-        login(email, password).then((response) => {
-            setUserObj(response.data['user_info'])
-            setToken(response.data['token'])
-            setIsLoggedIn(true)
-        })
+        login(email, password)
+            .then((response) => {
+                setUserObj(response.data['user_info']);
+                saveInfo('token', response.data['token']);
+                saveInfo('isLoggedIn', 'true');
+                DevSettings.reload();
+            })
             .catch((error) => {
                 alert('wrong credentials');
             });
-    }
+    };
+
 
     return (
         <KeyboardAvoidingView style={styles.containerView} behavior="padding">

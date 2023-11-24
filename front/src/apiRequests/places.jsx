@@ -10,7 +10,7 @@ const search_places = (value, token) => {
 const place_details = (item_id, token) => {
     const headers = {"Authorization": `Token ${token}`}
     return axios.get(`http://${base_api_url}/api/places/items/${item_id}`, {headers}).catch((error) => {
-        alert(error.response.data);
+        alert(`place Details ${JSON.stringify(error.response.data)}`);
     });
 
 }
@@ -24,10 +24,10 @@ const check_current_seats = (parameters) => {
     const {token, date_time, place} = parameters
     const headers = {"Authorization": `Token ${token}`}
     return axios.post(`http://${base_api_url}/api/places/available_seats/`, {
-        date_time:date_time.toISOString(),
+        date_time: date_time.toISOString(),
         place: place
     }, {headers}).catch((error) => {
-        alert(error.response.data);
+        alert(`check Seats ${JSON.stringify(error.response.data)}`);
     });
 }
 

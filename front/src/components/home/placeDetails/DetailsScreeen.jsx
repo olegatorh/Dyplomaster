@@ -1,8 +1,7 @@
 import React, {useState} from "react";
-import {Button, FlatList, Image, Linking, Text, View, VirtualizedList} from "react-native";
+import {Button, FlatList, Image, Linking, Text, View} from "react-native";
 import {useRoute} from "@react-navigation/native";
 import styles from "../style";
-import ParameterDialog from "./makeBooking";
 import {base_api_url} from "../../../apiRequests/base";
 import {create_booking} from '../../../apiRequests/profile'
 import ShiftTimingScreen from "./makeBooking";
@@ -11,7 +10,7 @@ export const DetailsScreen = () => {
     const route = useRoute();
     const otherProp = route.params.props;
     const [isDialogVisible, setDialogVisible] = useState(false);
-
+    console.log('detail screen token',otherProp.token)
     const openDialog = () => {
         setDialogVisible(true);
     };

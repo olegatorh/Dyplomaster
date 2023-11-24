@@ -8,6 +8,11 @@ const registration = (email, password, username, phone_number) => {
 
 const login = (email, password) => {
      return axios.post(`http://${base_api_url}/api/users/login/`, {email, password})
-
 }
-export { registration, login };
+
+const refresh_token = (token) => {
+     const headers = {"Authorization": `Token ${token}`}
+     return axios.post(`http://${base_api_url}/api/users/login/`, {}, {headers})
+}
+
+export { registration, login , refresh_token};

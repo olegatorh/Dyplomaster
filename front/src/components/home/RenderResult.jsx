@@ -2,24 +2,36 @@ import {FlatList, Image, Text, TouchableOpacity, View} from "react-native";
 import styles from "./style";
 import {useNavigation} from "@react-navigation/native";
 import {place_details} from "../../apiRequests/places";
-import {base_api_url} from "../../apiRequests/base";
 import {useContext} from "react";
-import {Context} from "../globalContext/globalContext";
+import {Context, getValueFor} from "../globalContext/globalContext";
+import {base_api_url} from "../../apiRequests/base";
 
 export const RenderResult = ({results}) => {
-    const navigation = useNavigation()
+    const navigation = useNavigation();
     const globalContext = useContext(Context);
-    const {token, userObj} = globalContext;
+    const {userObj} = globalContext;
+
     const onClickR = (item) => {
-        place_details(item.id, token).then(
-            (response) => {
+        const fetchTokenAndPlaceDetails = async () => {
+            try {
+                const storedToken = await getValueFor('token');
+                console.log('stored token on render result', storedToken);
+
+                // Use the token directly within this block
+                const response = await place_details(item.id, storedToken);
+
                 navigation.navigate('Details', {
                     name: item.place_name,
-                    props: {items: response.data, place: item, userObj: userObj, token:token}
-                })
+                    props: {items: response.data, place: item, userObj: userObj, token: storedToken},
+                });
+            } catch (error) {
+                console.error('Error fetching token or place details:', error);
             }
-        )
-    }
+        };
+
+        fetchTokenAndPlaceDetails();
+    };
+
     return (
         <FlatList
             showsHorizontalScrollIndicator={false}
@@ -47,6 +59,6 @@ export const RenderResult = ({results}) => {
             )}
         />
     );
-}
+};
 
 
