@@ -5,7 +5,8 @@ const { StyleSheet } = React;
 const styles = StyleSheet.create({
   containerView: {
     flex: 1,
-    alignItems: "center"
+    alignItems: "center",
+    backgroundColor: '#fdf6ee',
   },
   loginScreenContainer: {
     flex: 1,
@@ -43,6 +44,7 @@ const styles = StyleSheet.create({
       height: 45,
       marginTop: 10,
       backgroundColor: 'transparent',
+      color: 'blue',
   }
 });
 export default styles;

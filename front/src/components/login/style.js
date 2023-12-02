@@ -5,19 +5,26 @@ const { StyleSheet } = React;
 const styles = StyleSheet.create({
   containerView: {
     flex: 1,
-    alignItems: "center"
+    alignItems: "center",
+    backgroundColor: '#fdf6ee',
   },
   loginScreenContainer: {
     flex: 1,
   },
+  logoImage: {
+    width: 150,
+    height: 150,
+    alignSelf: "center",
+  },
   logoText: {
     fontSize: 40,
     fontWeight: "800",
-    marginTop: 150,
+    marginTop: 100,
     marginBottom: 30,
     textAlign: "center",
   },
   loginFormView: {
+    justifyContent: 'center',
     flex: 1,
   },
   loginFormTextInput: {

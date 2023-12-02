@@ -87,12 +87,13 @@ export const Navigation = (props) => {
                     <Stack.Screen
                         name="Login"
                         component={LoginScreen}
-                        options={{ title: 'Login' }}
+                        options={{ title: 'Login', headerShown: false }}
+                        
                     />
                     <Stack.Screen
                         name="Registration"
                         component={RegistrationScreen}
-                        options={{ title: 'Registration' }}
+                        options={{ title: 'Реєстрація', headerShown: false }}
                     />
                 </Stack.Navigator>
             )}
