@@ -87,12 +87,17 @@ const styles = StyleSheet.create({
         tables: {
             fontSize: 20, // Adjust the font size
         },
+        order_button_container: {
+            paddingHorizontal: 50,
+            paddingVertical: 10,
+        },
         order_button: {
             color: 'black',
-            backgroundColor: 'black'
+            backgroundColor: 'black',
         },
         additional_info: {
-            height: 100
+            padding: 10,
+            height: 'auto'
         },
         itemMenuContainer: {
             padding: 10,

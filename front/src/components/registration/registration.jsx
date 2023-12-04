@@ -24,7 +24,7 @@ export const RegistrationScreen = () => {
 
     const onRegPress = () => {
         registration(email, password, username, phone_number).then((response) => {
-            alert('registration success!!');
+            alert('Реєстрація успішна');
             navigation.navigate('Login')
         })
             .catch((error) => {
@@ -39,30 +39,30 @@ export const RegistrationScreen = () => {
             <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
                 <View style={styles.loginScreenContainer}>
                     <View style={styles.loginFormView}>
-                        <Text style={styles.logoText}>Registration Form</Text>
+                    <Text style={styles.logoText}>Реєстрація</Text>
                         <TextInput
-                            placeholder="Phone number"
+                            placeholder="Номер телефону"
                             placeholderColor="#c4c3cb"
                             style={styles.loginFormTextInput}
                             onChangeText={text => setPhoneNum(text)}
                             value={phone_number}
                         />
                         <TextInput
-                            placeholder="Email"
+                            placeholder="E-mail"
                             placeholderColor="#c4c3cb"
                             style={styles.loginFormTextInput}
                             onChangeText={text => setEmail(text)}
                             value={email}
                         />
                         <TextInput
-                            placeholder="Username"
+                            placeholder="Ім'я користувача"
                             placeholderColor="#c4c3cb"
                             onChangeText={text => setUsername(text)}
                             value={username}
                             style={styles.loginFormTextInput}
                         />
                         <TextInput
-                            placeholder="Password"
+                            placeholder="Пароль"
                             placeholderColor="#c4c3cb"
                             style={styles.loginFormTextInput}
                             onChangeText={text => setPassword(text)}
@@ -72,13 +72,13 @@ export const RegistrationScreen = () => {
                         <Button
                             buttonStyle={styles.RegButton}
                             onPress={() => onRegPress()}
-                            title="Register"
+                            title="Зареєструватись"
                         />
                         <Button
-                            titleStyle={{color: '#000000'}}
+                            titleStyle={{color: '#3897f1'}}
                             buttonStyle={styles.LoginButton}
                             onPress={() => navigation.navigate('Login')}
-                            title="Already has account? ->"
+                            title="Вже маєте обліковий запис? Увійти"
                         />
                     </View>
                 </View>

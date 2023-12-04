@@ -48,7 +48,9 @@ export const DetailsScreen = () => {
                         source={{uri: `http://${base_api_url}${place['place_picture']}`}} // Replace with your image URL
                     />
                     <Text style={styles.additional_info}>{place['additional_info']}</Text>
-                    <Button style={styles.order_button} onPress={openDialog} title={'Order Table'}/>
+                    <View style={styles.order_button_container}>
+                        <Button style={styles.order_button} onPress={openDialog} title={'Order Table'}/>
+                    </View>
                     <Button onPress={() => Linking.openURL(place['map_url'])} style={{color: 'black'}} title={'Google map'}/>
                     <ShiftTimingScreen
                         isVisible={isDialogVisible}

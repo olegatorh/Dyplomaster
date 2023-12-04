@@ -9,6 +9,7 @@ import {
     TextInput,
     TouchableWithoutFeedback,
     View,
+    Image,
 } from "react-native";
 import {Button} from "react-native-elements";
 import {Context, saveInfo} from '../globalContext/globalContext';
@@ -34,7 +35,7 @@ export const LoginScreen = () => {
                 DevSettings.reload();
             })
             .catch((error) => {
-                alert('wrong credentials');
+                alert('Неправильний e-mail або пароль');
             });
     };
 
@@ -44,16 +45,17 @@ export const LoginScreen = () => {
             <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
                 <View style={styles.loginScreenContainer}>
                     <View style={styles.loginFormView}>
-                        <Text style={styles.logoText}>Welcome again</Text>
+                        <Image style = {styles.logoImage} source={require('../img/logo.jpg')}></Image>
+                        <Text style={styles.logoText}>Ласкаво просимо</Text>
                         <TextInput
-                            placeholder="Email or phone number"
+                            placeholder="Введіть e-mail"
                             placeholderColor="#c4c3cb"
                             onChangeText={text => setEmail(text)}
                             value={email}
                             style={styles.loginFormTextInput}
                         />
                         <TextInput
-                            placeholder="Password"
+                            placeholder="Введіть пароль"
                             placeholderColor="#c4c3cb"
                             onChangeText={text => setPassword(text)}
                             style={styles.loginFormTextInput}
@@ -62,13 +64,13 @@ export const LoginScreen = () => {
                         <Button
                             buttonStyle={styles.loginButton}
                             onPress={() => onLoginPress()}
-                            title="Login"
+                            title="Увійти"
                         />
                         <Button
-                            titleStyle={{color: '#000000'}}
+                            titleStyle={{color: '#3897f1'}}
                             buttonStyle={styles.RegisterButton}
                             onPress={() => navigation.navigate('Registration')}
-                            title="Create your account ->"
+                            title="Створити новий обліковий запис"
                         />
                     </View>
                 </View>
