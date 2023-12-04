@@ -126,6 +126,7 @@ const styles = StyleSheet.create({
             justifyContent: 'center',
             alignItems: 'center',
             backgroundColor: 'white',
+            height: 300,
         },
         dialogInput: {
             borderWidth: 1,
