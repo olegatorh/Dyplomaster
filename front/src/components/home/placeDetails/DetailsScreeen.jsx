@@ -49,10 +49,10 @@ export const DetailsScreen = () => {
                     />
                     <Text style={styles.additional_info}>{place['additional_info']}</Text>
                     <View style={styles.order_button_container}>
-                        <Button style={styles.order_button} onPress={openDialog} title={'Order Table'}/>
+                        <Button style={styles.order_button} onPress={openDialog} title={'Резервувати столик'}/>
                     </View>
                     <View style={styles.map_button_container}>
-                        <Button style={styles.map_button} onPress={() => Linking.openURL(place['map_url'])} title={'Google map'}/>
+                        <Button style={styles.map_button} onPress={() => Linking.openURL(place['map_url'])} title={'Переглянути локацію'}/>
                     </View>
                     <ShiftTimingScreen
                         isVisible={isDialogVisible}

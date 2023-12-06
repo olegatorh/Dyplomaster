@@ -3,22 +3,25 @@ const React = require("react-native");
 const {StyleSheet} = React;
 
 const styles = StyleSheet.create({
+    fieldContainer: {
+        marginHorizontal: 12,
+    },
+    input: {
+        height: 43,
+        fontSize: 14,
+        borderRadius: 5,
+        marginVertical: 12,
+        borderWidth: 1,
+        padding: 10
+    },
     appButtonContainer: {
-        elevation: 8,
-        backgroundColor: "#009688",
-        borderRadius: 10,
-        paddingVertical: 10,
         paddingHorizontal: 12,
-        marginBottom: 100,
+        paddingVertical: 10,
     },
     appButtonText: {
-        fontSize: 18,
-        color: "#fff",
-        fontWeight: "bold",
-        alignSelf: "center",
-        textTransform: "uppercase"
+        color: 'black',
+        backgroundColor: 'black'
     }
-
 });
 
 

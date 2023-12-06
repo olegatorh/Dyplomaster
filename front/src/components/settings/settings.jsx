@@ -6,6 +6,7 @@ import {useNavigation} from '@react-navigation/native';
 import {update_user_info} from '../../apiRequests/profile';
 import * as SecureStore from "expo-secure-store";
 import {DevSettings} from 'react-native';
+import { Button } from 'react-native-elements';
 
 export const SettingsScreen = (props) => {
     const globalContext = useContext(Context);
@@ -60,19 +61,20 @@ export const SettingsScreen = (props) => {
     };
 
     return (
-        <View style={{flex: 1, justifyContent: 'center'}}>
+        <View style={{flex: 1, justifyContent: 'center', paddingBottom: 40}}>
             {/* Editable fields */}
             <View style={styles.fieldContainer}>
-                <Text>Phone Number:</Text>
+                <Text>Номер телефону:</Text>
                 <TextInput
                     style={styles.input}
+                    keyboardType='phone-pad'
                     value={editedValues.phoneNumber}
                     onChangeText={(text) => setEditedValues({...editedValues, phoneNumber: text})}
                 />
             </View>
 
             <View style={styles.fieldContainer}>
-                <Text>Username:</Text>
+                <Text>Ім'я:</Text>
                 <TextInput
                     style={styles.input}
                     value={editedValues.username}
@@ -81,23 +83,20 @@ export const SettingsScreen = (props) => {
             </View>
 
             <View style={styles.fieldContainer}>
-                <Text>Email:</Text>
+                <Text>E-mail:</Text>
                 <TextInput
                     style={styles.input}
+                    keyboardType='email-address'
                     value={editedValues.email}
                     onChangeText={(text) => setEditedValues({...editedValues, email: text})}
                 />
             </View>
-
-            {/* Save changes button */}
-            <TouchableOpacity onPress={onSaveChanges} style={styles.appButtonContainer}>
-                <Text style={styles.appButtonText}>Save Changes</Text>
-            </TouchableOpacity>
-
-            {/* Leave button */}
-            <TouchableOpacity onPress={onPressLeave} style={styles.appButtonContainer}>
-                <Text style={styles.appButtonText}>Leave</Text>
-            </TouchableOpacity>
+            <View style={styles.appButtonContainer}>
+                <Button style={styles.appButton} onPress={onSaveChanges} title={'Зберегти зміни'}/>
+            </View>
+            <View style={styles.appButtonContainer}>
+                <Button style={styles.appButton} onPress={onPressLeave} title={'Вийти з облікового запису'}/>
+            </View>
         </View>
     );
 };

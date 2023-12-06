@@ -61,7 +61,6 @@ export const OrdersScreen = () => {
 
     return (
         <SafeAreaView style={styles.container}>
-            <Text style={{ alignSelf: 'center' }}>Ваші замовлення</Text>
             <FlatList
                 showsHorizontalScrollIndicator={false}
                 showsVerticalScrollIndicator={false}
