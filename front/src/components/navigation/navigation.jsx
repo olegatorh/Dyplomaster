@@ -105,7 +105,7 @@ const TabNavigator = () => {
     return (
         <Tab.Navigator>
             <Tab.Screen
-                name="Places"
+                name="Заклади"
                 component={HomeScreen}
                 options={{
                     headerShown: false,
@@ -115,20 +115,18 @@ const TabNavigator = () => {
                 }}
             />
             <Tab.Screen
-                name="Orders"
+                name="Замовлення"
                 component={OrdersScreen}
                 options={{
-                    headerShown: false,
                     tabBarIcon: ({ tintColor }) => (
                         <Icon name="receipt" color={tintColor} size={25} />
                     ),
                 }}
             />
             <Tab.Screen
-                name="Settings"
+                name="Налаштування"
                 component={SettingsScreen}
                 options={{
-                    headerShown: false,
                     tabBarIcon: ({ tintColor }) => (
                         <Icon name="person" color={tintColor} size={25} />
                     ),

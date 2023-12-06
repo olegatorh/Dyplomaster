@@ -33,22 +33,13 @@ export const OrdersScreen = () => {
     );
 
     const createTwoButtonAlert = (item) =>
-        Alert.alert(`${item.place_name}`, `do you want to disable booking at ${new Date(item.booking_time_start).toLocaleTimeString([], {
-            year: 'numeric',
-            month: '2-digit',
-            day: '2-digit',
-            hour: '2-digit',
-            minute: '2-digit',
-        })}-${new Date(item.booking_time_end).toLocaleTimeString([], {
-            hour: '2-digit',
-            minute: '2-digit',
-        })}? for ${item.people_number}`, [
+        Alert.alert(`${item.place_name}`, `Ви дійсно хочете відмінити замовлення на ${item.people_number} осіб?`, [
             {
-                text: 'Cancel',
+                text: 'Ні',
                 onPress: () => console.log('Cancel booking disabling'),
                 style: 'cancel',
             },
-            { text: 'Yes', onPress: () => handleDelete(item.id) },
+            { text: 'Так', onPress: () => handleDelete(item.id) },
         ]);
 
     const handleDelete = (bookingId) => {
@@ -70,7 +61,6 @@ export const OrdersScreen = () => {
 
     return (
         <SafeAreaView style={styles.container}>
-            <Text style={{ alignSelf: 'center' }}>Your Orders</Text>
             <FlatList
                 showsHorizontalScrollIndicator={false}
                 showsVerticalScrollIndicator={false}
@@ -96,7 +86,7 @@ export const OrdersScreen = () => {
                                        style={styles.image}/>
                                 <View style={styles.orderDetailsContainer}>
                                     <Text style={styles.orderText}>{item.place_name}</Text>
-                                    <Text style={styles.orderText}>people count: {item.people_number}</Text>
+                                    <Text style={styles.orderText}>Кількість місць: {item.people_number}</Text>
                                     <Text style={styles.orderText}>{new Date(item.booking_time_start).toLocaleTimeString([], {
                                         year: 'numeric',
                                         month: '2-digit',
@@ -107,10 +97,10 @@ export const OrdersScreen = () => {
                                         hour: '2-digit',
                                         minute: '2-digit',
                                     })}</Text>
-                                    <Text style={styles.orderText}>additional info: {item.additional_info}</Text>
+                                    <Text style={styles.orderText}>Додатково: {item.additional_info}</Text>
                                 </View>
                                 <TouchableOpacity style={styles.deleteButton} onPress={() => createTwoButtonAlert(item)}>
-                                    <Text style={styles.deleteButtonText}>cancel a reservation</Text>
+                                    <Text style={styles.deleteButtonText}>Відмінити резерв</Text>
                                 </TouchableOpacity>
                             </View>) :
                         <View style={styles.orderContainer}>
@@ -118,13 +108,13 @@ export const OrdersScreen = () => {
                                    style={styles.image}/>
                             <View style={styles.orderDetailsContainer}>
                                 <Text style={styles.orderText}>{item.place_name}</Text>
-                                <Text style={styles.orderText}>people count: {item.people_number}</Text>
-                                <Text style={styles.orderText}>time start: {item.booking_time_start}</Text>
-                                <Text style={styles.orderText}>time end: {item.booking_time_end}</Text>
-                                <Text style={styles.orderText}>additional info: {item.additional_info}</Text>
+                                <Text style={styles.orderText}>Кількість місць: {item.people_number}</Text>
+                                <Text style={styles.orderText}>Початок: {item.booking_time_start}</Text>
+                                <Text style={styles.orderText}>Кінець: {item.booking_time_end}</Text>
+                                <Text style={styles.orderText}>Додатково: {item.additional_info}</Text>
                             </View>
                             <TouchableOpacity style={styles.deleteButtonNotActive}>
-                                <Text style={styles.deleteButtonText}>reservation expired</Text>
+                                <Text style={styles.deleteButtonText}>Архівне</Text>
                             </TouchableOpacity>
                         </View>
                 )}

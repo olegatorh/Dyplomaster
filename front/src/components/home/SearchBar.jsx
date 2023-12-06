@@ -35,7 +35,7 @@ export const SearchBar = ({setResults}) => {
                 styles.searchBar__unclicked
             }>
                 <TextInput style={styles.input}
-                           placeholder="Type to search..."
+                           placeholder="Пошук"
                            value={searchInput}
                            onChangeText={text => handleChange(text)}
                 />

@@ -32,11 +32,9 @@ const styles = StyleSheet.create({
     fontSize: 14,
     borderRadius: 5,
     borderWidth: 1,
-    borderColor: "#eaeaea",
     backgroundColor: "#fafafa",
-    paddingLeft: 10,
-    marginTop: 5,
-    marginBottom: 5,
+    padding: 10,
+    marginVertical: 12,
   },
   loginButton: {
     backgroundColor: "#3897f1",
