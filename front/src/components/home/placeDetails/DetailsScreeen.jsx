@@ -51,7 +51,9 @@ export const DetailsScreen = () => {
                     <View style={styles.order_button_container}>
                         <Button style={styles.order_button} onPress={openDialog} title={'Order Table'}/>
                     </View>
-                    <Button onPress={() => Linking.openURL(place['map_url'])} style={{color: 'black'}} title={'Google map'}/>
+                    <View style={styles.map_button_container}>
+                        <Button style={styles.map_button} onPress={() => Linking.openURL(place['map_url'])} title={'Google map'}/>
+                    </View>
                     <ShiftTimingScreen
                         isVisible={isDialogVisible}
                         onClose={closeDialog}
@@ -61,7 +63,7 @@ export const DetailsScreen = () => {
                         seats={place.seats}
                     />
                     <View style={{marginTop: 40}}>
-                        <Text style={{fontSize: 20, textAlign: 'center', alignItems: 'center'}}>Menu</Text>
+                        <Text style={{fontSize: 20, textAlign: 'center', alignItems: 'center'}}>Меню закладу</Text>
                     </View>
                 </View>
             }
@@ -73,12 +75,16 @@ export const DetailsScreen = () => {
 
 const Item = ({item}) => (
     <View style={styles.itemMenuContainer}>
-        <Text style={styles.itemMenuName}>{item.item_name}</Text>
-        <Text style={styles.additionalMenuInfo}>{item.additional_info}</Text>
-        <Image
-            source={{uri: `http://${base_api_url}${item.item_picture}`}}
-            style={styles.itemMenuImage}
-        />
-        <Text style={styles.itemMenuPrice}>{item.item_price}</Text>
+        <View style={styles.itemMenuInfoContainer}>
+            <Text style={styles.itemMenuName}>{item.item_name}</Text>
+            <Text style={styles.additionalMenuInfo}>{item.additional_info}</Text>
+            <Text style={styles.itemMenuPrice}>Ціна: {item.item_price} грн</Text>
+        </View>
+        <View style={styles.itemMenuImageContainer}>
+            <Image
+                source={{uri: `http://${base_api_url}${item.item_picture}`}}
+                style={styles.itemMenuImage}
+            />
+        </View>
     </View>
 );

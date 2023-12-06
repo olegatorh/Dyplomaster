@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
             flexDirection: "row",
             width: "100%",
             backgroundColor: "#d9dbda",
-            borderRadius: 15,
+            borderRadius: 5,
             alignItems: "center",
         },
         searchBar__clicked: {
@@ -57,6 +57,8 @@ const styles = StyleSheet.create({
             color: 'black',
             marginBottom: 25,
             alignItems: 'center',
+            marginTop: 20,
+            fontSize: 16,
         },
         detail_image: {
             width: '100%',
@@ -95,14 +97,28 @@ const styles = StyleSheet.create({
             color: 'black',
             backgroundColor: 'black',
         },
+        map_button_container: {
+            paddingHorizontal: 50,
+            paddingVertical: 10,
+        },
+        map_button: {
+            color: 'black',
+            backgroundColor: 'black',
+        },
         additional_info: {
             padding: 10,
             height: 'auto'
         },
         itemMenuContainer: {
+            flexDirection: 'row',
+            alignItems: 'center',
             padding: 10,
             borderBottomWidth: 1,
             borderBottomColor: '#ccc',
+        },
+        itemMenuInfoContainer: {
+            flex: 7,
+            paddingRight: 10,
         },
         itemMenuName: {
             fontSize: 18,
@@ -112,9 +128,15 @@ const styles = StyleSheet.create({
             fontSize: 14,
         },
         itemMenuImage: {
-            width: 200,
-            height: 200,
+            width: '100%',
+            height: '100%',
             resizeMode: 'cover',
+            borderRadius: 10,
+        },
+        itemMenuImageContainer: {
+            flex: 3,
+            height: 100,
+            overflow: 'hidden',
         },
         itemMenuPrice: {
             fontSize: 16,
@@ -128,8 +150,8 @@ const styles = StyleSheet.create({
 
         },
         RenderImage: {
-            width: 300, // Adjust the image width as needed
-            height: 150, // Adjust the image height as needed
+            width: 380, // Adjust the image width as needed
+            height: 190, // Adjust the image height as needed
             marginRight: 16, // Spacing between the image and details
             borderRadius: 5
         },
