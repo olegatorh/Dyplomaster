@@ -4,8 +4,8 @@ from knox.auth import TokenAuthentication
 from rest_framework.decorators import api_view, authentication_classes, permission_classes
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
-from .models import Place, Booking, PlaceItems
-from .serializers import PlaceSerializer, BookingSerializer, PlaceItemsSerializer, PostBookingSerializer
+from .models import Place, Booking, PlaceItems, ItemGroups
+from .serializers import PlaceSerializer, BookingSerializer, PlaceItemsSerializer, PostBookingSerializer, PlaceGroupsSerializer
 from rest_framework import status
 from django.utils import timezone
 import pytz
@@ -121,6 +121,14 @@ def place_items_api(request, place_name):
     serializer = PlaceItemsSerializer(filtered_items, many=True)
     return Response(serializer.data)
 
+
+@api_view(['GET'])
+@authentication_classes([TokenAuthentication])
+@permission_classes([IsAuthenticated])
+def place_groups_api(request, place_id):
+    filtered_items = ItemGroups.objects.filter(place=place_id)
+    serializer = PlaceGroupsSerializer(filtered_items, many=True)
+    return Response(serializer.data)
 
 @api_view(['POST'])
 @authentication_classes([TokenAuthentication])

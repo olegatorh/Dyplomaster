@@ -14,6 +14,13 @@ const place_details = (item_id, token) => {
     });
 
 }
+const place_groups = (place_id, token) => {
+    const headers = {"Authorization": `Token ${token}`}
+    return axios.get(`http://${base_api_url}/api/places/groups/${place_id}`, {headers}).catch((error) => {
+        alert(`place groups ${JSON.stringify(error.response.data)}`);
+    });
+
+}
 
 const get_places = (token) => {
     const headers = {"Authorization": `Token ${token}`}
@@ -32,4 +39,4 @@ const check_current_seats = (parameters) => {
 }
 
 
-export {search_places, place_details, get_places, check_current_seats}
+export {search_places, place_details, get_places, check_current_seats, place_groups}

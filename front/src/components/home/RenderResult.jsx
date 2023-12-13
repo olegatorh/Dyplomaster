@@ -1,7 +1,7 @@
 import {FlatList, Image, Text, TouchableOpacity, View} from "react-native";
 import styles from "./style";
 import {useNavigation} from "@react-navigation/native";
-import {place_details} from "../../apiRequests/places";
+import {place_details, place_groups} from "../../apiRequests/places";
 import {useContext} from "react";
 import {Context, getValueFor} from "../globalContext/globalContext";
 import {base_api_url} from "../../apiRequests/base";
@@ -15,14 +15,14 @@ export const RenderResult = ({results}) => {
         const fetchTokenAndPlaceDetails = async () => {
             try {
                 const storedToken = await getValueFor('token');
-                console.log('stored token on render result', storedToken);
 
                 // Use the token directly within this block
                 const response = await place_details(item.id, storedToken);
-
+                const place_groups_list = await place_groups(item.id, storedToken)
                 navigation.navigate('Details', {
                     name: item.place_name,
                     props: {items: response.data, place: item, userObj: userObj, token: storedToken},
+                    place_groups: place_groups_list.data
                 });
             } catch (error) {
                 console.error('Error fetching token or place details:', error);

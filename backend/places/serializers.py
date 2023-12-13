@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Place, Booking, PlaceItems
+from .models import Place, Booking, PlaceItems, ItemGroups
 import pytz
 
 
@@ -61,9 +61,16 @@ class BookingDisableSerializer(serializers.ModelSerializer):
     class Meta:
         model = Booking
         fields = ['active']
+class PlaceGroupsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ItemGroups
+        fields = '__all__'
 
 
 class PlaceItemsSerializer(serializers.ModelSerializer):
+    item_group_name = serializers.CharField(source='item_group.group_name', read_only=True)
+
     class Meta:
         model = PlaceItems
-        fields = '__all__'
+        fields = ['id', 'item_name', 'item_group', 'item_group_name', 'item_price', 'item_picture', 'additional_info',
+                  'place']
