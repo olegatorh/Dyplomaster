@@ -6,7 +6,7 @@ import styles from "./style";
 import {check_current_seats} from "../../../apiRequests/places";
 
 const ParameterDialog = ({isVisible, onClose, onSave, token, place_id, seats}) => {
-    const [peopleNumber, setPeopleNumber] = useState('');
+    const [peopleNumber, setPeopleNumber] = useState('1');
     const [additionalInfo, setAdditionalInfo] = useState('');
     const [bookingDate, setBookingDate] = useState(new Date());
     const [bookingTimeStart, setBookingTimeStart] = useState(new Date());
@@ -74,7 +74,16 @@ const ParameterDialog = ({isVisible, onClose, onSave, token, place_id, seats}) =
         });
     };
 
-
+    const handleIncrement = () => {
+        setPeopleNumber(prevValue => String(parseInt(prevValue, 10) + 1));
+    };
+    
+    const handleDecrement = () => {
+        if (parseInt(peopleNumber, 10) > 0) {
+            setPeopleNumber(prevValue => String(parseInt(prevValue, 10) - 1));
+        }
+    };
+    
     const showDatepicker = () => {
         showMode('start', 'dateStart');
     };
@@ -97,55 +106,64 @@ const ParameterDialog = ({isVisible, onClose, onSave, token, place_id, seats}) =
     return (
         <Modal isVisible={isVisible} style={styles.modal}>
             <View style={styles.makeBcontainer}>
-                <Text>Enter Booking Parameters:</Text>
+                <Text style={{fontSize: 20, textAlign: 'center', alignItems: 'center',}}>Введіть дані замовлення</Text>
                 <SafeAreaView style={styles.buttons}>
                     <View style={{flex: 1, flexDirection: 'row', justifyContent: 'space-between'}}>
                         <View style={{margin: 5}}>
-                            <Button onPress={showDatepicker} title="Select Date"/>
+                            <Button onPress={showDatepicker} title="Оберіть дату"/>
                         </View>
                         <View style={{margin: 5}}>
-                            <Button onPress={showTimepickerStart} title="Time Start"/>
+                            <Button onPress={showTimepickerStart} title="Початок"/>
                         </View>
                         <View style={{margin: 5}}>
-                            <Button onPress={showTimepickerEnd} title="Time End"/>
+                            <Button onPress={showTimepickerEnd} title="Кінець"/>
                         </View>
                     </View>
                 </SafeAreaView>
-                <View style={{alignItems: 'center', marginBottom: 5, marginTop: 5}}>
-                    <Text>Date: {bookingDate.toLocaleDateString()}</Text>
-                    <Text>Time: {bookingTimeStart.toLocaleTimeString([], {
+                <View style={{fontSize: 15, alignItems: 'left', padding: 5}}>
+                    <Text>Дата: {bookingDate.toLocaleDateString('en-GB',{
+                        day: '2-digit',
+                        month: '2-digit',
+                        year: 'numeric',
+                    }).replace(/\//g, '.')}</Text>
+                    <Text>Час: {bookingTimeStart.toLocaleTimeString('en-GB', {
                         hour: '2-digit',
                         minute: '2-digit',
-                    })} - {bookingTimeEnd.toLocaleTimeString([], {
+                        hour12: false,
+                    })} - {bookingTimeEnd.toLocaleTimeString('en-GB', {
                         hour: '2-digit',
                         minute: '2-digit',
+                        hour12: false,
                     })}</Text>
                     <Text style={{color: availableSeats < 10 ? 'red' : 'black'}}>
-                        Available seats for your time: {availableSeats}
+                        Кількість вільних місць на обраний час: {availableSeats}
                     </Text>
+                </View>
+                    <View style={styles.numberInputContainer}>
+                        <Text style={styles.numberInputLabel}>Кількість місць:</Text>
+                        <View style={styles.numberInputButtons}>
+                        <Button title="-" onPress={handleDecrement} style={styles.buttonPadding} />
+                        <Text style={styles.numberInputValue}>{peopleNumber}</Text>
+                        <Button title="+" onPress={handleIncrement} style={styles.buttonPadding} />
+                    </View>
                 </View>
                 <TextInput
                     style={styles.dialogInput}
-                    placeholder="Seats Number"
-                    value={peopleNumber}
-                    onChangeText={setPeopleNumber}
-                />
-                <TextInput
-                    style={styles.dialogInput}
-                    placeholder="Additional Info"
+                    placeholder="Додаткова інформація"
                     value={additionalInfo}
                     onChangeText={setAdditionalInfo}
                 />
                 <View style={styles.buttons}>
-                    <View style={{padding: 2}}>
-                        <Button title="Booking" style={{padding: 2}} onPress={handleSave}/>
-                    </View>
+
                     <View style={{padding: 2}}>
                         <Button
-                            title="Close"
+                            title="Відмінити"
                             style={{padding: 2, color: 'red', backgroundColor: '#f44336'}}
                             onPress={onClose}
                         />
+                    </View>
+                    <View style={{padding: 2}}>
+                        <Button title="Замовити" style={{padding: 2}} onPress={handleSave}/>
                     </View>
                 </View>
             </View>

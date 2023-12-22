@@ -6,7 +6,7 @@ from django.core.exceptions import ValidationError
 
 def start_datetime_validator(booking_time_start):
     if booking_time_start and booking_time_start < timezone.localtime(timezone.now()):
-        raise ValidationError("Date and time must be in the future.")
+        raise ValidationError("Дата і час повинні бути майбутніми")
 
 
 class Place(models.Model):
@@ -33,7 +33,7 @@ class Booking(models.Model):
 
     def clean(self):
         if self.booking_time_end <= self.booking_time_start:
-            raise ValidationError("End time must be greater than the start time.")
+            raise ValidationError("Час закінчення повинен бути пізніше за час початку")
         super(Booking, self).clean()
     
 

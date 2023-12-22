@@ -62,12 +62,6 @@ const styles = StyleSheet.create({
             width: '100%',
             height: 150
         },
-        // tables: {
-        //     alignSelf: "flex-end",
-        // },
-        // place_name: {
-        //     alignSelf: "flex-start",
-        // },
         name_tables: {
             flexDirection: 'row',
             justifyContent: 'space-between',
@@ -116,28 +110,47 @@ const styles = StyleSheet.create({
             fontWeight: 'bold',
         },
         makeBcontainer: {
-            width: 300, // Set the width to your desired value
-            height: 200, // Set the height to your desired value
-            backgroundColor: 'white',
-            padding: 10,
-            borderRadius: 10,
+            backgroundColor: '#fff',
+            padding: 16,
+            borderTopLeftRadius: 16,
+            borderTopRightRadius: 16,
         },
         modal: {
-            justifyContent: 'center',
-            alignItems: 'center',
-            backgroundColor: 'white',
-            height: 300,
+            margin: 0,
+            justifyContent: 'flex-end',
         },
         dialogInput: {
+            height: 40,
+            borderColor: 'gray',
             borderWidth: 1,
-            borderColor: '#ccc',
-            borderRadius: 5,
-            padding: 10,
             marginBottom: 10,
+            paddingLeft: 10,
+
         },
         buttons: {
-            flexDirection: 'row', // Display items in a row
-            alignItems: 'center', // Vertically align items
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            marginTop: 10,
+        },
+        numberInputContainer: {
+            flexDirection: 'row',
+            alignItems: 'center',
+            marginBottom: 10,
+          },
+          numberInputLabel: {
+            marginRight: 10,
+            fontSize: 16,
+          },
+          numberInputButtons: {
+            flexDirection: 'row',
+            alignItems: 'center',
+          },
+          numberInputValue: {
+            marginHorizontal: 10,
+            fontSize: 16,
+          },
+        buttonPadding:{
+            paddingHorizontal: 10,
         },
 
     })

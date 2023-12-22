@@ -87,13 +87,13 @@ export const OrdersScreen = () => {
                                 <View style={styles.orderDetailsContainer}>
                                     <Text style={styles.orderText}>{item.place_name}</Text>
                                     <Text style={styles.orderText}>Кількість місць: {item.people_number}</Text>
-                                    <Text style={styles.orderText}>{new Date(item.booking_time_start).toLocaleTimeString([], {
-                                        year: 'numeric',
-                                        month: '2-digit',
+                                    <Text style={styles.orderText}>{new Date(item.booking_time_start).toLocaleTimeString('en-GB', {
                                         day: '2-digit',
+                                        month: '2-digit',
+                                        year: 'numeric',
                                         hour: '2-digit',
                                         minute: '2-digit',
-                                    })}-{new Date(item.booking_time_end).toLocaleTimeString([], {
+                                    }).replace(/\//g, '.')} - {new Date(item.booking_time_end).toLocaleTimeString('en-GB', {
                                         hour: '2-digit',
                                         minute: '2-digit',
                                     })}</Text>
@@ -109,8 +109,16 @@ export const OrdersScreen = () => {
                             <View style={styles.orderDetailsContainer}>
                                 <Text style={styles.orderText}>{item.place_name}</Text>
                                 <Text style={styles.orderText}>Кількість місць: {item.people_number}</Text>
-                                <Text style={styles.orderText}>Початок: {item.booking_time_start}</Text>
-                                <Text style={styles.orderText}>Кінець: {item.booking_time_end}</Text>
+                                <Text style={styles.orderText}>{new Date(item.booking_time_start).toLocaleTimeString('en-GB', {
+                                        day: '2-digit',
+                                        month: '2-digit',
+                                        year: 'numeric',
+                                        hour: '2-digit',
+                                        minute: '2-digit',
+                                    }).replace(/\//g, '.')} - {new Date(item.booking_time_end).toLocaleTimeString('en-GB', {
+                                        hour: '2-digit',
+                                        minute: '2-digit',
+                                    })}</Text>
                                 <Text style={styles.orderText}>Додатково: {item.additional_info}</Text>
                             </View>
                             <TouchableOpacity style={styles.deleteButtonNotActive}>

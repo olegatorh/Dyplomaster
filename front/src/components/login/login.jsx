@@ -49,6 +49,7 @@ export const LoginScreen = () => {
                         <Text style={styles.logoText}>Ласкаво просимо</Text>
                         <TextInput
                             placeholder="Введіть e-mail"
+                            keyboardType='email-address'
                             placeholderColor="#c4c3cb"
                             onChangeText={text => setEmail(text)}
                             value={email}
