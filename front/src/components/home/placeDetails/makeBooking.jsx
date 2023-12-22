@@ -98,7 +98,7 @@ const ParameterDialog = ({isVisible, onClose, onSave, token, place_id, seats}) =
 
     const handleSave = () => {
         // Validate and save the parameters
-        if (bookingTimeStart && bookingTimeEnd && peopleNumber && additionalInfo) {
+        if (bookingTimeStart && bookingTimeEnd && peopleNumber) {
             onSave({bookingTimeStart, bookingTimeEnd, peopleNumber, additionalInfo});
         }
     };

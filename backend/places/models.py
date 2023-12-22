@@ -24,7 +24,7 @@ class Place(models.Model):
 class Booking(models.Model):
     place = models.ForeignKey(Place, on_delete=models.CASCADE, related_name='bookings')
     people_number = models.IntegerField()
-    additional_info = models.CharField(max_length=100)
+    additional_info = models.CharField(max_length=100, blank=True)
     active = models.BooleanField(default=True)
     created_time = models.DateTimeField(auto_now_add=True)
     booking_time_start = models.DateTimeField(validators=[start_datetime_validator], )

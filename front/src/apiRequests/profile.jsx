@@ -13,9 +13,9 @@ const get_bookings = (user_id, token) => {
     return axios.get(`http://${base_api_url}/api/places/bookings/${user_id}`, {headers})
 }
 const update_user_info = (parameters) => {
-    const { token, ...userWithoutToken } = parameters;
+    const {token, ...userWithoutToken} = parameters;
     const headers = {"Authorization": `Token ${token}`}
-    return axios.put(`http://${base_api_url}/api/users/change_user/${parameters.id}/`, {userWithoutToken},{headers})
+    return axios.put(`http://${base_api_url}/api/users/change_user/${parameters.id}/`, {userWithoutToken}, {headers})
 }
 
 const get_bookings_all = (token) => {
@@ -43,7 +43,11 @@ const create_booking = (parameters) => {
         user
     }, {headers}).catch((error) => {
         console.log(JSON.stringify(error.response.data))
-        alert(JSON.stringify(error.response.data));
+        let values = Object.values(error.response.data).flatMap(function (arr) {
+            return arr;
+        });
+        let message = values.join('\n');
+        alert(message);
     });
 
 

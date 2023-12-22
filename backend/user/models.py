@@ -13,13 +13,15 @@ class MyUserManager(BaseUserManager):
             raise ValueError('The Email field must be set')
         email = self.normalize_email(email)
         user = self.model(email=email, phone_number=phone_number, **extra_fields)
+        phone_number = PhoneField(blank=True, unique=False, help_text='Contact phone number')
         user.set_password(password)
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, email, password=None):
+    def create_superuser(self, email, password=None, phone_number='+380000000'):
         user = self.create_user(
-            email,
+            email=email,
+            phone_number=phone_number,
             password=password
         )
         user.is_admin = True
