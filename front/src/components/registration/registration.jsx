@@ -43,6 +43,7 @@ export const RegistrationScreen = () => {
                         <TextInput
                             placeholder="Номер телефону"
                             placeholderColor="#c4c3cb"
+                            keyboardType='phone-pad'
                             style={styles.loginFormTextInput}
                             onChangeText={text => setPhoneNum(text)}
                             value={phone_number}
@@ -50,6 +51,7 @@ export const RegistrationScreen = () => {
                         <TextInput
                             placeholder="E-mail"
                             placeholderColor="#c4c3cb"
+                            keyboardType='email-address'
                             style={styles.loginFormTextInput}
                             onChangeText={text => setEmail(text)}
                             value={email}

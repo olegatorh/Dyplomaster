@@ -124,7 +124,7 @@ const TabNavigator = () => {
                 }}
             />
             <Tab.Screen
-                name="Налаштування"
+                name="Профіль"
                 component={SettingsScreen}
                 options={{
                     tabBarIcon: ({ tintColor }) => (

@@ -53,7 +53,7 @@ export const SettingsScreen = (props) => {
     const onSaveChanges = () => {
         update_user_info({...userObj, ...editedValues, token}).then((response) => {
             console.log('response', response.data);
-            alert('User info changed');
+            alert('Дані користувача успішно змінено');
             if (isMounted.current) {
                 setUserObj(response.data);
             }

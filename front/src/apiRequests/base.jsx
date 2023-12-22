@@ -1,2 +1,2 @@
 
-export const base_api_url = "192.168.88.195:8000"
+export const base_api_url = "10.32.40.61:8000"
